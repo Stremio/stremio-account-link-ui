@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Stremio Link</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="https://stremio.com/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="https://stremio.com/favicon-96x96.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+		<style>
+			body {
+				background: #2b2c43;
+				width: 100%;
+				text-align: center;
+				margin: 0;
+			}
+			#logo {
+				padding: 40px 0;
+				width: 80px;
+			}
+			#holder {
+				width: 600px;
+				max-width: calc(90% - 200px);
+				border-radius: 6px;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background: rgba(0,0,0,.2);
+				color: rgba(255,255,255,.7);
+				padding: 40px 100px;
+				font-family: 'Open Sans';
+				display: inline-block;
+			}
+			h2 {
+				color: white;
+				margin-top: 0;
+				font-size: 2em;
+			}
+			form {
+				margin: 0;
+			}
+			#codeinput {
+				padding: 12px 20px;
+				margin: 20px 0;
+				box-sizing: border-box;
+				background-color: rgba(0,0,0,0.2);
+				border: 0;
+				font-size: 50px;
+				color: white;
+				border-radius: 0;
+				text-align: center;
+				text-transform: uppercase;
+			}
+			.button.lrg {
+				width: 100%;
+				border-radius: 3px;
+				margin-top: 20px;
+				border: 0;
+				padding: 20px;
+				background-color: rgba(138,90,171,0.7);
+				color: #fff;
+				cursor: pointer;
+				font-size: 110%;
+			}
+			.button.lrg:hover {
+				background-color: rgba(138,90,171,0.9);
+			}
+			@media only screen and (max-width: 660px) {
+				#holder {
+					max-width: calc(90% - 50px);
+					padding: 20px 25px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<img id="logo" src="https://www.stremio.com/website/stremio-logo-small.png">
+		<br/>
+		<div id="holder">
+			<h2>Link Account</h2>
+			<p>To link your account, please enter the 4-character code displayed on your app.</p>
+			<form onsubmit="return goto_code()">
+				<input id="codeinput" type="text" name="code" required minlength="4" maxlength="4" size="5" autofocus="autofocus" autocomplete="off">
+				<button type="submit" class="button lrg">Link</button>
+			</form>
+		</div>
+		<script>
+			function goto_code() {
+				var code = document.getElementById('codeinput').value
+				if (code && code.length == 4)
+					window.location = 'https://link.stremio.com/' + code.toUpperCase()
+				return false
+			}
+		</script>
+	</body>
+</html>
