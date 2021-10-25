@@ -84,12 +84,20 @@
 			</form>
 		</div>
 		<script>
+			var inputField = document.getElementById('codeinput')
 			function goto_code() {
-				var code = document.getElementById('codeinput').value
+				var code = inputField.value
 				if (code && code.length == 4)
 					window.location = 'https://link.stremio.com/' + code.toUpperCase()
 				return false
 			}
+			function on_input_change() {
+				var code = inputField.value
+				if (code.length > 4)
+					inputField.value = code.substr(0, 4)
+			}
+			inputField.addEventListener('input', on_input_change);
+			inputField.addEventListener('propertychange', on_input_change);
 		</script>
 	</body>
 </html>
